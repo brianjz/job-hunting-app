@@ -1,7 +1,7 @@
 # Job Hunt
 
-[Live Demo](https://job--hunting.herokuapp.com/)
-
+Forked from [Arianna Valle](https://github.com/ariannavalle/job-hunting-app) to personally use and modify for my job hunt.
+---
 Job Hunt allows you to stay organized through the job application process.
 
 Create an entry for every job application you've submitted. Each entry will contain information about the job such as title, company name, location, date applied, estimated salary, URL to job posting, and any additional notes.
