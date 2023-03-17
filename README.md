@@ -1,6 +1,7 @@
 # Job Hunt
 
 Forked from [Arianna Valle](https://github.com/ariannavalle/job-hunting-app) to personally use and modify for my job hunt.
+
 ---
 Job Hunt allows you to stay organized through the job application process.
 
