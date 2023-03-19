@@ -1,7 +1,8 @@
 import React from 'react'
-import { MdLocationOn, MdWeb } from "react-icons/md";
+import { MdLocationOn, MdWeb, MdDriveEta, MdContactMail } from "react-icons/md";
 import { BsBuilding, BsCalendar } from "react-icons/bs";
 import { BiNote } from "react-icons/bi";
+import { GrStatusInfo } from "react-icons/gr"
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import './CardDetails.css'
 
@@ -12,7 +13,7 @@ export default class CardDetails extends React.Component {
     }
 
     render() {
-        const { _id, title, company, salary, location, date, note, postingURL } = this.props.card;
+        const { _id, title, company, salary, location, jobtype, date, note, postingURL, contactName, contactInfo, currentStatus } = this.props.card;
         const { toggleDetailsModal, toggleEditModal, editCard, deleteCard, displayDetailsModal, displayEditModal, displayNotification, column, card } = this.props;
         return (
             <>
@@ -26,16 +27,30 @@ export default class CardDetails extends React.Component {
                             <div className="details">{company}</div>
 
                             <div className="details-header"><MdLocationOn className="details-icon" /> Location</div>
-                            <div className="details">{location}</div>
+                            <div className="details">
+                                {location}
+                                {jobtype && ` (${jobtype})`}
+                            </div>
 
                             <div className="details-header"><BsCalendar className="details-icon" /> Date Applied</div>
                             <div className="details">{date? date.slice(0,10): date}</div>
 
+                            <div className="details-header"><GrStatusInfo className="details-icon" /> Current Status</div>
+                            <div className="details">{currentStatus}</div>
+
                             <div className="details-header"><MdWeb className="details-icon" /> Estimated Salary (in thousands)</div>
                             <div className="details">{salary ? `$${salary}k`:``}</div>
 
+                            { postingURL && <>
                             <div className="details-header"><MdWeb className="details-icon" /> URL to Job Posting</div>
-                            <div className="details">{postingURL}</div>
+                            <div className="details"><a target="_blank" rel="nofollow noreferrer" href={postingURL}>{postingURL}</a></div>
+                            </>}
+                            
+                            {contactName && <>
+                            <div className="details-header"><MdContactMail className="details-icon" /> Contact</div>
+                            <div className="details">{contactName}</div>
+                            <div className="details second">{contactInfo.indexOf('@' > -1) ? <a href={`mailto:${contactInfo}`}>{contactInfo}</a> : contactInfo}</div>
+                            </> }
 
                             <div className="details-header"><BiNote className="details-icon" /> Notes</div>
                             <div className="details">{note}</div>
@@ -79,10 +94,30 @@ export default class CardDetails extends React.Component {
                                 </div>
 
                                 <div className="details-header">
+                                    <MdDriveEta className="details-icon" /> Job Type
+                            </div>
+                                <div className="edit-input">
+                                    <select className="form-control" value={jobtype} onChange={this.props.handleChange}>
+                                        <option value=""></option>
+                                        <option value="Onsite">Onsite</option>
+                                        <option value="Hybrid">Hybrid</option>
+                                        <option value="Remote">Remote</option>
+                                    </select>
+                                    {/* <input type="text" name="jobtype" id="jobtype" placeholder={jobtype} value={jobtype} onChange={this.props.handleChange} /> */}
+                                </div>
+
+                                <div className="details-header">
                                     <BsCalendar className="details-icon" /> Date Applied
                             </div>
                                 <div className="edit-input">
                                     <input type="date" name="date" id="date" value={date? date.slice(0,10): date} onChange={this.props.handleChange} />
+                                </div>
+
+                                <div className="details-header">
+                                    <MdWeb className="details-icon" /> Current Status
+                            </div>
+                                <div className="edit-input">
+                                    <input type="text" name="currentStatus" id="currentStatus" placeholder={currentStatus} value={currentStatus} onChange={this.props.handleChange} />
                                 </div>
 
                                 <div className="details-header">
@@ -97,6 +132,20 @@ export default class CardDetails extends React.Component {
                             </div>
                                 <div className="edit-input">
                                     <input type="text" name="postingURL" id="postingURL" placeholder={postingURL} value={postingURL} onChange={this.props.handleChange} />
+                                </div>
+
+                                <div className="details-header">
+                                    <MdContactMail className="details-icon" /> Contact Name
+                            </div>
+                                <div className="edit-input">
+                                    <input type="text" name="contactName" id="contactName" placeholder={contactName} value={contactName} onChange={this.props.handleChange} />
+                                </div>
+
+                                <div className="details-header">
+                                    <MdContactMail className="details-icon" /> Contact Info
+                            </div>
+                                <div className="edit-input">
+                                    <input type="text" name="contactInfo" id="contactInfo" placeholder={contactInfo} value={contactInfo} onChange={this.props.handleChange} />
                                 </div>
 
                                 <div className="details-header">

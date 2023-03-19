@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import AUTH_SERVICE from '../../services/AuthService';
 import { MdAddCircleOutline } from "react-icons/md";
-import { FaListUl, FaMapMarkedAlt, FaPowerOff } from "react-icons/fa";
+import { FaListUl, FaPowerOff } from "react-icons/fa";
 import { GoGraph } from "react-icons/go";
 import './Sidebar.css'
 

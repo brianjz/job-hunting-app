@@ -19,10 +19,22 @@ const cardSchema = new Schema(
     location: {
       type: String,
     },
+    jobtype: {
+      type: String,
+    },
     salary: {
       type: Number,
     },
     postingURL: {
+      type: String,
+    },
+    contactName: {
+      type: String,
+    },
+    contactInfo: {
+      type: String,
+    },
+    currentStatus: {
       type: String,
     },
     creator: { type: Schema.Types.ObjectId, ref: 'User' }

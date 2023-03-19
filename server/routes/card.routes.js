@@ -17,6 +17,7 @@ router.post('/api/cards', (req, res, next) => {
     date: req.body.date,
     note: req.body.note,
     location: req.body.location,
+    jobtype: req.body.jobtype,
     salary: req.body.salary,
     postingURL: req.body.postingURL,
     creator: req.user._id

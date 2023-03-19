@@ -128,7 +128,7 @@ export default class Board extends Component {
     }
 
     render() {
-        const { currentUser, onUserChange, columns, updateCardState, updateColumnState, replaceColumns, cards, deleteCard, editCard, editColumn, deleteColumn, successMessage } = this.props;
+        const { currentUser, onUserChange, columns, updateCardState, updateColumnState, replaceColumns, deleteCard, editCard, editColumn, deleteColumn, successMessage } = this.props;
 
 
         return (
@@ -143,7 +143,7 @@ export default class Board extends Component {
                 <Alert color="success" isOpen={this.state.displayNotification}><b>{successMessage}</b></Alert>
 
                 <div className="welcome-msg">
-                    <h2>Welcome, {`${currentUser.name}.`}</h2>
+                    <h2>Welcome, {currentUser.name}.</h2>
                     <div style={{ color: "#777" }}>You have applied to <b>{this.getJobsApplied()}</b> {this.getMsg()} </div>
                 </div>
 

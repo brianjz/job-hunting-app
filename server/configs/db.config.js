@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const db = process.env.MONGODB_URI || 'mongodb://localhost/job-hunting-app'
+const db = process.env.MONGODB_URI || 'mongodb://127.0.0.1/job-hunting-app'
 mongoose
   .connect(db, {
     useCreateIndex: true,
