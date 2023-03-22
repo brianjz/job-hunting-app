@@ -23,8 +23,8 @@ require('./configs/db.config');
 // require CORS 
 app.use(
   cors({
-     origin: true, //[process.env.FRONTEND_POINT],
-    credentials: true // this needs set up on the frontend side as well
+     origin: 'http://localhost:3001', //[process.env.FRONTEND_POINT],
+     credentials: true, // this needs set up on the frontend side as well
     //                   in axios "withCredentials: true"
   })
 );

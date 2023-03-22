@@ -90,14 +90,13 @@ export default class CreateCard extends React.Component {
 
                                 <div className="details-header"><MdDriveEta className="details-icon" />Job Type</div>
                                 <select className="form-control" value={jobtype} onChange={this.props.handleChange}>
-                                        <option value=""></option>
-                                        <option value="Onsite">Onsite</option>
-                                        <option value="Hybrid">Hybrid</option>
-                                        <option value="Remote">Remote</option>
-                                    </select>
+                                    <option value=""></option>
+                                    <option value="Onsite">Onsite</option>
+                                    <option value="Hybrid">Hybrid</option>
+                                    <option value="Remote">Remote</option>
+                                </select>
 
-
-                                <div className="details-header"><BsCalendar className="details-icon" />Date Applied</div>
+                                <div className="details-header"><BsCalendar className="details-icon" />Status Date</div>
                                 <input type="date" name="date" id="date" value={date} onChange={this.handleChange} />
 
 
@@ -114,13 +113,8 @@ export default class CreateCard extends React.Component {
                                 <div className="details-header"><MdContactMail className="details-icon" />Contact Info</div>
                                 <input type="text" name="contactInfo" id="contactInfo" value={contactInfo} onChange={this.handleChange} />
 
-                                <div className="edit-input">
-                                    <input type="text" name="contactInfo" id="contactInfo" placeholder={contactInfo} value={contactInfo} onChange={this.props.handleChange} />
-                                </div>
-
                                 <div className="details-header"><BiNote className="details-icon" />Notes</div>
                                 <textarea rows="4" cols="40" name="note" id="note" value={note} onChange={this.handleChange} />
-
 
                                 <div className="form-group form-button">
                                     <input type="submit" name="create" id="create" className="form-submit-btn" value="Create" />

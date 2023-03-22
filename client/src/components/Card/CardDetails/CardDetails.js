@@ -97,7 +97,7 @@ export default class CardDetails extends React.Component {
                                     <MdDriveEta className="details-icon" /> Job Type
                             </div>
                                 <div className="edit-input">
-                                    <select className="form-control" value={jobtype} onChange={this.props.handleChange}>
+                                    <select className="form-control" name="jobtype" value={jobtype} onChange={this.props.handleChange}>
                                         <option value=""></option>
                                         <option value="Onsite">Onsite</option>
                                         <option value="Hybrid">Hybrid</option>
@@ -107,7 +107,7 @@ export default class CardDetails extends React.Component {
                                 </div>
 
                                 <div className="details-header">
-                                    <BsCalendar className="details-icon" /> Date Applied
+                                    <BsCalendar className="details-icon" /> Status Date
                             </div>
                                 <div className="edit-input">
                                     <input type="date" name="date" id="date" value={date? date.slice(0,10): date} onChange={this.props.handleChange} />
